@@ -14,6 +14,7 @@
 
 - [Invoke webrequest](./PowerShell/invoke-webrequest.ps1)
 - [Check SSL](./PowerShell/check-ssl.ps1)
+- [Copy File](./PowerShell/CopyFile.ps1)
 
 ## CSS
 
