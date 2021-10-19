@@ -1,0 +1,17 @@
+UPDATE m
+SET [UI_EFF_REVIEW] = 'Y'
+FROM [dbo].[EFF_RPT_MSTR] m
+JOIN (
+    SELECT [EMPLID]
+      ,[DEPTID]
+      ,[UI_SURVEY_TYPE]
+      ,[END_DT]
+    FROM [dbo].[EFF_RPT_SRVY]
+    WHERE LINE_NBR < 5 
+        AND UI_PCT_THIS_LINE <0.1 
+        AND END_DT>'20200101'
+    ) as a
+ON m.EMPLID = a.EMPLID 
+    AND m.DEPTID = a.DEPTID 
+    AND m.UI_SURVEY_TYPE = a.UI_SURVEY_TYPE 
+    AND m.END_DT = a.END_DT
